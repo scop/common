@@ -18,6 +18,13 @@
   "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{controls}}}",
   "packageRules": [
     {
+      // https://docs.renovatebot.com/key-concepts/minimum-release-age/
+      "matchDatasources": ["docker", "github-releases", "github-tags", "gitlab-releases", "gitlab-tags", "go", "npm", "pypi"],
+      "minimumReleaseAge": "7 days",
+      "minimumReleaseAgeBehaviour": "timestamp-optional", // do not skip altogether if no timestamps available
+      "internalChecksFilter": "strict"
+    },
+    {
       "matchDepNames": ["dprint/dprint-plugin-*"],
       "groupName": "dprint plugins"
     }
