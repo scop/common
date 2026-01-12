@@ -9,7 +9,6 @@
     "github>kachick/renovate-config-dprint#1.3.0"
   ],
   "ignorePresets": [
-    ":dependencyDashboard",
     ":semanticPrefixFixDepsChoreOthers"
   ],
   "semanticCommits": "enabled",
