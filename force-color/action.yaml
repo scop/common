@@ -10,8 +10,8 @@ runs:
       run: |
         {
           # General
-          echo FORCE_COLOR=1     # https://force-color.org
-          echo CLICOLOR_FORCE=1  # https://bixense.com/clicolors/
+          echo FORCE_COLOR=1             # https://force-color.org
+          echo CLICOLOR_FORCE=1          # https://bixense.com/clicolors/
 
           # Rust
           echo CARGO_TERM_COLOR=always   # https://doc.rust-lang.org/cargo/reference/config.html#termcolor
