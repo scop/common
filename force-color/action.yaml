@@ -13,6 +13,9 @@ runs:
           echo FORCE_COLOR=1             # https://force-color.org
           echo CLICOLOR_FORCE=1          # https://bixense.com/clicolors/
 
+          # pre-commit
+          echo PRE_COMMIT_COLOR=always   # https://pre-commit.com/#command-line-interface
+
           # Rust
           echo CARGO_TERM_COLOR=always   # https://doc.rust-lang.org/cargo/reference/config.html#termcolor
           echo RUSTUP_TERM_COLOR=always  # https://rust-lang.github.io/rustup/environment-variables.html#environment-variables
