@@ -15,6 +15,8 @@ jobs:
       - uses: scop/common/force-color@main
 ```
 
+See [`force-color/`](force-color/)
+
 ## Renovate preset
 
 Opinionated
@@ -31,3 +33,5 @@ Usage in
     "github>scop/common"
   ],
 ```
+
+See [`default.json`](default.json)
