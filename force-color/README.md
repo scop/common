@@ -13,5 +13,6 @@ jobs:
       - uses: scop/common/force-color@main
 ```
 
-See <https://github.com/scop/common/wiki/force%E2%80%90color-coverage>
+See the
+[coverage wiki page](https://github.com/scop/common/wiki/force%E2%80%90color-coverage)
 for some tool coverage info.
