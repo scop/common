@@ -1,0 +1,5 @@
+remotes:
+  - git_url: https://github.com/scop/common.git
+    refetch_frequency: 24h
+    configs:
+      - lefthook/all.yaml
