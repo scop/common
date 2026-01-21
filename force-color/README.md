@@ -1,4 +1,4 @@
-# force-color GitHub action
+# Force color GitHub action
 
 GitHub action to force color output from tools,
 works by setting environment variables.

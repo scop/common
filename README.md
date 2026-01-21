@@ -1,6 +1,6 @@
 # [@scop](https://github.com/scop) common things
 
-## GitHub action: Force color
+## Force color GitHub action
 
 GitHub action to force color output from tools,
 works by setting environment variables.
