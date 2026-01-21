@@ -7,6 +7,14 @@ works by setting environment variables.
 
 See [`force-color/`](force-color/)
 
+## Lefthook remote configurations
+
+Opinionated
+[remote configurations](https://lefthook.dev/configuration/remotes.html)
+for [Lefthook](https://lefthook.dev).
+
+See [`lefthook/`](lefthook/)
+
 ## Renovate preset
 
 Opinionated

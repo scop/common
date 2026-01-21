@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/evilmartians/lefthook/master/schema.json
+
+min_version: 2.0.3
+
+pre-commit:
+  fail_on_changes: non-ci # assumes autofix.ci
+
+  jobs:
+    - name: dprint
+      file_types: text
+      run: mise exec -- dprint fmt --allow-no-files -- {staged_files}
+
+    - name: specific
+      group:
+        parallel: true
+        jobs:
+          - name: python
+            file_types: text/x-python
+            group:
+              jobs:
+                - name: ruff-check
+                  run: mise exec -- ruff check --force-exclude --fix -- {staged_files}
+                - name: ruff-format
+                  run: mise exec -- ruff format --force-exclude -- {staged_files}
+                - name: mypy
+                  run: uv run mypy .
+
+          - name: rumdl
+            glob:
+              - "*.md"
+              - "*.markdown"
+            run: mise exec -- rumdl check --fix --quiet -- {staged_files}
+
+          - name: shell
+            file_types: text/x-shellscript
+            group:
+              jobs:
+                - name: shfmt
+                  run: mise exec -- shfmt --write -- {staged_files}
+                - name: shellcheck
+                  run: mise exec -- shellcheck --format=gcc -- {staged_files}
+
+    - name: typos
+      file_types: text
+      run: mise exec -- typos --force-exclude --write-changes {staged_files}
+
+commit-msg:
+  commands:
+    committed:
+      run: mise exec -- committed --config=.config/committed.toml --fixup --wip --commit-file="{1}"
+
+commits-on-pr-branch:
+  commands:
+    committed:
+      run: mise exec -- committed --config=.config/committed.toml -vv --no-merge-commit HEAD~..HEAD^2
