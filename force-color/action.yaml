@@ -13,6 +13,9 @@ runs:
           echo FORCE_COLOR=1             # https://force-color.org
           echo CLICOLOR_FORCE=1          # https://bixense.com/clicolors/
 
+          # npm
+          echo npm_config_color=always   # Yep, lowercase, https://docs.npmjs.com/cli/v11/using-npm/config#environment-variables
+
           # pre-commit
           echo PRE_COMMIT_COLOR=always   # https://pre-commit.com/#command-line-interface
 
