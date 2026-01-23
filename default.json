@@ -33,7 +33,11 @@
       "internalChecksFilter": "strict"
     },
     {
-      "matchDepNames": ["dprint/dprint-plugin-*"],
+      "matchDepNames": [
+        "dprint/dprint-plugin-*",
+        "g-plane/pretty_yaml",
+        "scop/shebang"
+      ],
       "groupName": "dprint plugins"
     }
   ]
