@@ -23,7 +23,7 @@ pre-commit:
                 - name: ruff-format
                   run: mise exec -- ruff format --force-exclude -- {staged_files}
                 - name: mypy
-                  run: uv run mypy .
+                  run: uv run mypy # set module, package, files etc in mypy config
 
           - name: rumdl
             glob:
