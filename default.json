@@ -3,6 +3,7 @@
   "description": "Opinionated Renovate shareable config preset",
   "extends": [
     "config:best-practices",
+    ":enablePreCommit",
     ":prConcurrentLimit20",
     ":preserveSemverRanges",
     ":semanticPrefixChore",
