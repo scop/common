@@ -40,6 +40,20 @@
         "scop/shebang"
       ],
       "groupName": "dprint plugins"
+    },
+    {
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchDepNames": [
+        "actions/*",
+        "github/*",
+        "scop/*"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "automerge": true
     }
   ]
 }
