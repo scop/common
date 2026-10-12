@@ -15,15 +15,26 @@ pre-commit:
         parallel: true
         jobs:
           - name: python
-            file_types: text/x-python
             group:
+              # Not parallel, and "duplication" in general: https://github.com/evilmartians/lefthook/issues/1183#issuecomment-6132123776 onwards
               jobs:
-                - name: ruff-check
-                  run: mise exec -- ruff check --force-exclude --fix -- {staged_files}
-                - name: ruff-format
-                  run: mise exec -- ruff format --force-exclude -- {staged_files}
-                - name: mypy
-                  run: uv run mypy # set module, package, files etc in mypy config
+                - &python_checks
+                  name: by file contents
+                  file_types: text/x-python
+                  group:
+                    jobs:
+                      - name: ruff-check
+                        run: mise exec -- ruff check --force-exclude --fix -- {staged_files}
+                      - name: ruff-format
+                        run: mise exec -- ruff format --force-exclude -- {staged_files}
+                      - name: mypy
+                        run: uv run mypy # set module, package, files etc in mypy config
+                - <<: *python_checks
+                  name: by filename (glob)
+                  file_types: text
+                  glob:
+                    - "*.py"
+                    - "*.pyi"
 
           - name: rumdl
             glob:
@@ -32,13 +43,26 @@ pre-commit:
             run: mise exec -- rumdl check --fix --quiet -- {staged_files}
 
           - name: shell
-            file_types: text/x-shellscript
             group:
+              # By file contents and filenames for same reasons as "python" above
               jobs:
-                - name: shfmt
-                  run: mise exec -- shfmt --write -- {staged_files}
-                - name: shellcheck
-                  run: mise exec -- shellcheck --format=gcc -- {staged_files}
+                - &shell_checks
+                  name: by file contents
+                  file_types: text/x-shellscript
+                  group:
+                    jobs:
+                      - name: shfmt
+                        run: mise exec -- shfmt --write -- {staged_files}
+                      - name: shellcheck
+                        run: mise exec -- shellcheck --format=gcc -- {staged_files}
+                - <<: *shell_checks
+                  name: by filename (glob)
+                  file_types: text
+                  glob:
+                    - "*.sh"
+                    - "*.sh.in"
+                    - "*.bash"
+                    - "*.bash.in"
 
     - name: typos
       file_types: text
