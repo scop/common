@@ -7,7 +7,7 @@
     ":prConcurrentLimit20",
     ":preserveSemverRanges",
     ":semanticPrefixChore",
-    "github>kachick/renovate-config-dprint#1.3.0"
+    "github>kachick/renovate-config-dprint#d80b3aad0c664a54df346fa502bd7bfcfb537b54" // v1.4.0
   ],
   "ignorePresets": [
     ":semanticPrefixFixDepsChoreOthers"
