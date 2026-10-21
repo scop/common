@@ -35,9 +35,11 @@
     },
     {
       "matchDepNames": [
-        "dprint/dprint-plugin-*",
-        "g-plane/pretty_yaml",
-        "scop/shebang"
+        "@dprint/*",
+        "dprint-plugin-*",
+        "dprint/dprint-plugin-*", // TODO: to be removed when usages updated to npm
+        "g-plane/pretty_yaml", // TODO: to be removed when usages updated to npm
+        "scop/shebang" // TODO: to be removed when available in npm and usages updated
       ],
       "groupName": "dprint plugins"
     },
