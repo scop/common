@@ -2,5 +2,5 @@
 committed = "1.1.10"
 dprint = "0.51.1"
 lefthook = "latest"
-rumdl = "0.0.215"
+rumdl = "0.3.2"
 typos = "1.42.1"
